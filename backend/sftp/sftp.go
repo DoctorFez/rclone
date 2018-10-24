@@ -322,7 +322,7 @@ func NewFs(name, root string, m configmap.Mapper) (fs.Fs, error) {
 
 	if opt.UseInsecureCipher {
 		sshConfig.Config.SetDefaults()
-		sshConfig.Config.Ciphers = append(sshConfig.Config.Ciphers, "aes128-cbc aes256-cbc aes192-cbc 3des-cbc")
+		sshConfig.Config.Ciphers = append(sshConfig.Config.Ciphers, "aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc")
 	}
 
 	// Add ssh agent-auth if no password or file specified
